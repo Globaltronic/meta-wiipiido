@@ -1,4 +1,4 @@
-DESCRIPTION = "Pine64 Linux Kernel"
+DESCRIPTION = "WIIPIIDO Linux Kernel"
 SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
@@ -12,7 +12,7 @@ LINUX_VERSION_EXTENSION = "-wiipiido"
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
 BRANCH = "sunxi64-4.19"
-SRCREV = "${AUTOREV}"
+SRCREV = "b325cd227f2426f938a08168b5c1b40111562e9e"
 SRC_URI = " \
            git://github.com/anarsoul/linux-2.6.git;branch=${BRANCH} \
            file://extra.cfg \
