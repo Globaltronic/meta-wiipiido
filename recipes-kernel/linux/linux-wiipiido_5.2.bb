@@ -6,21 +6,20 @@ LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 inherit kernel
 require recipes-kernel/linux/linux-yocto.inc
 
-LINUX_VERSION ?= "5.2.7"
-LINUX_VERSION_EXTENSION = "-pine64"
+LINUX_VERSION ?= "4.19"
+LINUX_VERSION_EXTENSION = "-wiipiido"
 
 PV = "${LINUX_VERSION}+git${SRCPV}"
 
-BRANCH = "sunxi64-5.2.y"
-SRCREV = "be246e6a6a8163d760e4badf1402f17ba974f4d7"
+BRANCH = "sunxi64-4.19"
+SRCREV = "${AUTOREV}"
 SRC_URI = " \
            git://github.com/anarsoul/linux-2.6.git;branch=${BRANCH} \
            file://extra.cfg \
 	  "
 
-KBUILD_DEFCONFIG_sopine-a64 = "defconfig"
-KBUILD_DEFCONFIG_pine-a64-lts = "defconfig"
+KBUILD_DEFCONFIG_wiipiido = "defconfig"
 KCONFIG_MODE="--alldefconfig"
 
-COMPATIBLE_MACHINE = "pine-a64-lts|sopine-a64"
+COMPATIBLE_MACHINE = "wiipiido"
 
