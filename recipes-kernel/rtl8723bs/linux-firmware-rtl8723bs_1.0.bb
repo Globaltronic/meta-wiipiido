@@ -16,8 +16,8 @@ S = "${WORKDIR}/git"
 do_configure() {
 }
 
-#do_compile() {
-#}
+do_compile() {
+}
 
 do_install() {
     install -d ${D}/lib/firmware/rtlwifi/

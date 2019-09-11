@@ -1,5 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
+SRCREV = "f8c8669760610b2949d8d9ccaeef8231a44d4205"
+
 SRC_URI += "file://boot.txt \
 	   "
 
