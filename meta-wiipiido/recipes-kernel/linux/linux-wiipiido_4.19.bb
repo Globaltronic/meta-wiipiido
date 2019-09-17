@@ -15,9 +15,10 @@ BRANCH = "linux-4.19.y"
 SRCREV = "db2d0b7c1dde59b93045a6d011f392fb04b276af"
 SRC_URI = " \
            git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;branch=${BRANCH} \
-           file://sun50i-a64-wiipiido.dts \
-           file://extra.cfg \
+           file://0001-armbian-sun50i-a64-dtsi.patch \
+           file://sun50i-a64-wiipiido_4.19.dts \
            file://fragment.cfg \
+           file://extra.cfg \
 	  "
 
 KBUILD_DEFCONFIG_wiipiido = "defconfig"
@@ -25,6 +26,6 @@ KCONFIG_MODE="--alldefconfig"
 
 COMPATIBLE_MACHINE = "wiipiido"
 
-#do_configure_prepend() {
-#    cp ${WORKDIR}/sun50i-a64-wiipiido.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
-#}
+do_configure_prepend() {
+    cp ${WORKDIR}/sun50i-a64-wiipiido_4.19.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
+}

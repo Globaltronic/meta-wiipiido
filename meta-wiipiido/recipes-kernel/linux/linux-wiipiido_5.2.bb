@@ -15,7 +15,7 @@ BRANCH = "sunxi64-5.2.y"
 SRCREV = "be246e6a6a8163d760e4badf1402f17ba974f4d7"
 SRC_URI = " \
            git://github.com/anarsoul/linux-2.6.git;branch=${BRANCH} \
-           file://sun50i-a64-wiipiido.dts \
+           file://sun50i-a64-wiipiido_5.2.dts \
            file://extra.cfg \
 	  "
 
@@ -25,5 +25,5 @@ KCONFIG_MODE="--alldefconfig"
 COMPATIBLE_MACHINE = "wiipiido"
 
 do_configure_prepend() {
-    cp ${WORKDIR}/sun50i-a64-wiipiido.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
+    mv ${WORKDIR}/sun50i-a64-wiipiido_5.2.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
 }
