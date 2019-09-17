@@ -17,6 +17,7 @@ SRC_URI = " \
            git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git;branch=${BRANCH} \
            file://sun50i-a64-wiipiido.dts \
            file://extra.cfg \
+           file://fragment.cfg \
 	  "
 
 KBUILD_DEFCONFIG_wiipiido = "defconfig"
@@ -24,6 +25,6 @@ KCONFIG_MODE="--alldefconfig"
 
 COMPATIBLE_MACHINE = "wiipiido"
 
-do_configure_prepend() {
-    cp ${WORKDIR}/sun50i-a64-wiipiido.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
-}
+#do_configure_prepend() {
+#    cp ${WORKDIR}/sun50i-a64-wiipiido.dts ${S}/arch/arm64/boot/dts/allwinner/sun50i-a64-wiipiido.dts
+#}
