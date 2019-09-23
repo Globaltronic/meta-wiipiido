@@ -51,12 +51,21 @@
 	compatible = "wiipiido,wiipiido", "allwinner,sun50i-a64";
 
 	aliases {
-		ethernet0 = &emac;
+        emac = &emac;
+        i2c0 = &i2c0;
+        mdio = &mdio;
+        mmc1 = &mmc1;
+        mmc2 = &mmc2;
+        spi0 = &spi0;
+        spi1 = &spi1;
 		serial0 = &uart0;
 		serial1 = &uart1;
 		serial2 = &uart2;
 		serial3 = &uart3;
 		serial4 = &uart4;
+		ethernet0 = &emac;
+        ext_rgmii_phy = &ext_rgmii_phy;
+        ext_rmii_phy1 = &ext_rmii_phy1;
 	};
 
 	chosen {
@@ -130,6 +139,28 @@
 	};
 };
 
+&i2c0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&i2c0_pins>;
+	status = "okay";
+
+    lis35dh: mems@29{
+        compatible = "st,lis3dh";
+        reg = <0x29>;
+        st,default-rate = <8>;
+    };
+
+    mcp3428: adc@6c{
+        compatible = "microchip,mcp3428";
+        reg = <0x6c>;
+    };
+
+    pcf85063: rtc@51{
+        compatible = "nxp,pcf85063";
+        reg = <0x51>;
+    };
+};
+
 &i2c1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&i2c1_pins>;
@@ -143,7 +174,13 @@
 &mdio {
 	ext_rgmii_phy: ethernet-phy@1 {
 		compatible = "ethernet-phy-ieee802.3-c22";
-		reg = <1>;
+		/* reg = <1>; */
+		reg = <0x7>;
+	};
+
+	ext_rmii_phy1: ethernet-phy@1 {
+		/* reg = <1>; */
+		reg = <0x7>;
 	};
 };
 
@@ -170,7 +207,8 @@
 
 &mmc2 {
 	pinctrl-names = "default";
-	pinctrl-0 = <&mmc2_pins>, <&mmc2_ds_pin>;
+	/* pinctrl-0 = <&mmc2_pins>, <&mmc2_ds_pin>; */
+	pinctrl-0 = <&mmc2_pins>;
 	vmmc-supply = <&reg_dcdc1>;
 /*	vqmmc-supply = <&reg_eldo1>;*/
 	vqmmc-supply = <&reg_dcdc1>;
@@ -386,4 +424,24 @@
 
 &usbphy {
 	status = "okay";
+};
+
+&spi0 {
+    status="okay";
+
+    spidev {
+        compatible = "spidev";
+        reg = <0>;
+        spi-max-frequency = <1200000>;
+    };
+};
+
+&spi1 {
+    status="okay";
+
+    spidev {
+        compatible = "spidev";
+        reg = <0>;
+        spi-max-frequency = <1200000>;
+    };
 };

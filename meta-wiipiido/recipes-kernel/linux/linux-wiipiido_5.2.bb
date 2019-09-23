@@ -17,6 +17,7 @@ SRC_URI = " \
            git://github.com/anarsoul/linux-2.6.git;branch=${BRANCH} \
            file://sun50i-a64-wiipiido_5.2.dts \
            file://extra.cfg \
+           file://fragment5.2.cfg \
 	  "
 
 KBUILD_DEFCONFIG_wiipiido = "defconfig"
