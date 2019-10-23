@@ -1,6 +1,6 @@
 # meta-wiipiido
 
-WIIPIIDO BSP Layer for OpenEmbedded/Yocto, based on https://github.com/alistair23/meta-pine64
+WiiPiiDo BSP Layer for OpenEmbedded/Yocto, based on https://github.com/alistair23/meta-pine64
 
 ## Dependencies
 

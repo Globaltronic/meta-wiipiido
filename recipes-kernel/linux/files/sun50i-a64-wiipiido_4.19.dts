@@ -47,7 +47,7 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
-	model = "WIIPIIDO";
+	model = "WiiPiiDo";
 	compatible = "wiipiido,wiipiido", "allwinner,sun50i-a64";
 
 	aliases {

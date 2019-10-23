@@ -1,4 +1,4 @@
-DESCRIPTION = "WIIPIIDO Linux Kernel v5.2"
+DESCRIPTION = "WiiPiiDo Linux Kernel v5.2"
 SECTION = "kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
