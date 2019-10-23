@@ -1,0 +1,24 @@
+From 81eef5144bf2369a602698e360c654e5bb6a14c5 Mon Sep 17 00:00:00 2001
+From: Diogo Duarte <dierduarte@gmail.com>
+Date: Tue, 24 Sep 2019 10:46:21 +0100
+Subject: [PATCH] Add generic spidev compatible
+
+---
+ drivers/spi/spidev.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/spi/spidev.c b/drivers/spi/spidev.c
+index 422bac8cc3e0..3be0b25e4eb1 100644
+--- a/drivers/spi/spidev.c
++++ b/drivers/spi/spidev.c
+@@ -663,6 +663,7 @@ static const struct of_device_id spidev_dt_ids[] = {
+ 	{ .compatible = "ge,achc" },
+ 	{ .compatible = "semtech,sx1301" },
+ 	{ .compatible = "lwn,bk4" },
++	{ .compatible = "spidev" },
+ 	{},
+ };
+ MODULE_DEVICE_TABLE(of, spidev_dt_ids);
+-- 
+2.11.0
+

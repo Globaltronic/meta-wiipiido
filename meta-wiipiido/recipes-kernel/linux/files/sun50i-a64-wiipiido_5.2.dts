@@ -83,6 +83,18 @@
 		};
 	};
 
+    spi0_cs1_pin: spi0_cs1_pin {
+        pins = "PD6";
+        function = "gpio_out";
+        output-high;
+    };
+
+    spi1_cs1_pin: spi1_cs1_pin {
+        pins = "PC6";
+        function = "gpio_out";
+        output-high;
+    };
+
 	wifi_pwrseq: wifi_pwrseq {
 		compatible = "mmc-pwrseq-simple";
 		reset-gpios = <&r_pio 0 2 GPIO_ACTIVE_LOW>; /* PL2 */
@@ -428,20 +440,34 @@
 
 &spi0 {
     status="okay";
+    /* pinctrl-names = "default", "default"; */
+    /* pinctrl-1 = <&spi0_cs1_pin>; */
+    /* /1* cs-gpios = <0x0 0xffffffff 0x3 0x6 0x0>; *1/ */
+    /* cs-gpios = <&pio 3 6 GPIO_ACTIVE_LOW>; */
+    /* num-cs = <2>; */
 
-    spidev {
+    spidev@0 {
         compatible = "spidev";
+        /* compatible = "rohm,dh2228fv"; */
         reg = <0>;
-        spi-max-frequency = <1200000>;
+        spi-max-frequency = <1000000>;
     };
+
 };
 
 &spi1 {
     status="okay";
+    /* pinctrl-names = "default", "default"; */
+    /* pinctrl-1 = <&spi1_cs1_pin>; */
+    /* /1* cs-gpios = <0x0 0xffffffff 0x2 0x6 0x0>; *1/ */
+    /* cs-gpios = <&pio 2 6 GPIO_ACTIVE_LOW>; */
+    /* num-cs = <2>; */
 
-    spidev {
+    spidev@0 {
         compatible = "spidev";
+        /* compatible = "rohm,dh2228fv"; */
         reg = <0>;
-        spi-max-frequency = <1200000>;
+        spi-max-frequency = <1000000>;
     };
 };
+

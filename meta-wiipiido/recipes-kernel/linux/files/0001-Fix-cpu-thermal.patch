@@ -1,0 +1,30 @@
+From f0f5d143016f2a8f0da29af76b163da1e20f98a1 Mon Sep 17 00:00:00 2001
+From: Diogo Duarte <dierduarte@gmail.com>
+Date: Thu, 26 Sep 2019 15:33:11 +0100
+Subject: [PATCH] Fix cpu thermal
+
+---
+ arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi
+index 4a737eda2bad..0dc000628e13 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64.dtsi
+@@ -911,11 +911,10 @@
+ 			compatible = "allwinner,sun50i-a64-ths";
+ 			reg = <0x01c25000 0x100>;
+ 			clocks = <&ccu CLK_BUS_THS>, <&ccu CLK_THS>;
+-			clock-names = "bus", "ahb";
++			clock-names = "bus", "mod";
+ 			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
+ 			resets = <&ccu RST_BUS_THS>;
+-			nvmem-cells = <&tsen_calib>;
+-			nvmem-cell-names = "calib";
++			#io-channel-cells = <0>;
+ 			#thermal-sensor-cells = <1>;
+ 		};
+ 
+-- 
+2.11.0
+
